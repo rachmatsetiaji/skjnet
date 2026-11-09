@@ -45,7 +45,7 @@
                 <a href="#kontak" data-i18n="nav_contact" class="nav-link hover:text-blue-600 transition">Kontak</a>
             </nav>
 
-            <!-- Fitur Tambahan (Bahasa dengan img src Mini Icon, Tombol Compro, CTA, & Tombol Hamburger Mobile) -->
+            <!-- Fitur Tambahan (Bahasa dengan img src Mini Icon, CTA, & Tombol Hamburger Mobile) -->
             <div class="flex items-center gap-3">
                 <!-- Dropdown Bahasa dengan img src Icon Bendera -->
                 <div class="flex items-center gap-1.5 bg-slate-100 border border-slate-300 text-sm rounded-lg px-2.5 py-1.5">
@@ -55,11 +55,6 @@
                         <option value="en">EN</option>
                     </select>
                 </div>
-
-                <!-- Tombol Compro dengan Ikon Download (Desktop) -->
-                <a href="Company_Profile_PT_SKJ.pdf" download="Company_Profile_PT_SKJ.pdf" data-i18n="cta_download" class="hidden lg:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-blue-600 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition shadow-sm gap-2">
-                    <i class="fa-solid fa-download text-xs"></i> <span>Compro</span>
-                </a>
 
                 <!-- Tombol Konsultasi (Desktop) -->
                 <a href="#kontak" data-i18n="cta_consult" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition shadow-sm">
@@ -80,10 +75,7 @@
             <a href="#services" onclick="toggleMobileMenu()" data-i18n="nav_services" class="block font-medium text-slate-700 hover:text-blue-600 py-1">Produk & Layanan</a>
             <a href="#articles" onclick="toggleMobileMenu()" data-i18n="nav_articles" class="block font-medium text-slate-700 hover:text-blue-600 py-1">Artikel</a>
             <a href="#kontak" onclick="toggleMobileMenu()" data-i18n="nav_contact" class="block font-medium text-slate-700 hover:text-blue-600 py-1">Kontak</a>
-            <div class="pt-2 space-y-2">
-                <a href="company-profile-skj.pdf" download="Company_Profile_PT_SKJ.pdf" onclick="toggleMobileMenu()" data-i18n="cta_download" class="block text-center w-full py-2.5 bg-blue-50 border border-blue-200 text-blue-600 rounded-lg font-semibold hover:bg-blue-100 transition">
-                    <i class="fa-solid fa-download mr-1"></i> Compro
-                </a>
+            <div class="pt-2">
                 <a href="#kontak" onclick="toggleMobileMenu()" data-i18n="cta_consult" class="block text-center w-full py-2.5 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
                     Konsultasi Gratis
                 </a>
@@ -94,8 +86,8 @@
     <!-- KONTEN UTAMA -->
     <main>
 
-        <!-- 1. SEKSI BERANDA (HOME) - Spacing atas dikurangi agar lebih mepet ke header -->
-        <section id="beranda" class="relative overflow-hidden py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white via-slate-50 to-slate-100/50">
+        <!-- 1. SEKSI BERANDA (HOME) -->
+        <section id="beranda" class="relative overflow-hidden py-16 lg:py-28 bg-gradient-to-b from-white via-slate-50 to-slate-100/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     
@@ -884,7 +876,6 @@
                 nav_articles: "Artikel",
                 nav_contact: "Kontak",
                 cta_consult: "Konsultasi Gratis",
-                cta_download: "Compro",
                 
                 hero_badge: "Mitra Strategis Managed Service & Solusi Digital Profesional",
                 hero_title_1: "Spesialis Konstruksi Jaringan & Infrastruktur Telekomunikasi Terpercaya",
@@ -1000,7 +991,6 @@
                 nav_articles: "Articles",
                 nav_contact: "Contact",
                 cta_consult: "Free Consultation",
-                cta_download: "Compro",
                 
                 hero_badge: "Strategic Partner Managed Services & Professional Digital Solutions",
                 hero_title_1: "Trusted Network Construction & Telecommunication Infrastructure Specialist",
@@ -1067,7 +1057,7 @@
 
                 art_main_title: "Articles & Insights",
                 art_main_desc: "Latest information regarding network construction, telecommunications, and infrastructure worlds.",
-                art_popup_hint: "Click for Pop-up & Photo Gallery Slide",
+                art_popup_hint: "Pop-up & Photo Gallery Slide",
                 art_1_tag: "Infrastructure • 2026",
                 art_1_title: "The Vital Role of Managed Services in Telecommunication Network Stability",
                 art_1_desc: "Maintaining network reliability through regular preventive and corrective maintenance by SKJ expert technicians.",

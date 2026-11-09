@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">SKJ | MSP & Digital Solution</title>
+    <!-- Favicon SKJ -->
+    <link rel="icon" type="image/png" href="Logo SKJ.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS untuk Efek Typewriter Non-Stop */
+        .typewriter-text {
+            border-right: 3px solid #2563eb;
+            white-space: normal;
+            word-wrap: break-word;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #2563eb; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 transition-colors duration-300 font-sans relative">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-45 backdrop-blur-md bg-white/90 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <!-- Logo SKJ Header -->
+            <a href="#beranda" class="flex items-center cursor-pointer group py-2" aria-label="Beranda SKJ">
+                <img src="LOGO_KOP_SURAT_SKJ-removebg-preview.png" alt="Logo SKJ" class="h-10 sm:h-35 w-auto object-contain transition group-hover:scale-105">
+            </a>
+
+            <!-- Navigasi Desktop -->
+            <nav class="hidden md:flex items-center gap-8 font-medium">
+                <a href="#beranda" data-i18n="nav_home" class="nav-link hover:text-blue-600 transition text-blue-600">Beranda</a>
+                <a href="#about" data-i18n="nav_about" class="nav-link hover:text-blue-600 transition">Tentang Kami</a>
+                <a href="#services" data-i18n="nav_services" class="nav-link hover:text-blue-600 transition">Produk & Layanan</a>
+                <a href="#articles" data-i18n="nav_articles" class="nav-link hover:text-blue-600 transition">Artikel</a>
+                <a href="#kontak" data-i18n="nav_contact" class="nav-link hover:text-blue-600 transition">Kontak</a>
+            </nav>
+
+            <!-- Fitur Tambahan (Bahasa dengan img src Mini Icon, Tombol Compro, CTA, & Tombol Hamburger Mobile) -->
+            <div class="flex items-center gap-3">
+                <!-- Dropdown Bahasa dengan img src Icon Bendera -->
+                <div class="flex items-center gap-1.5 bg-slate-100 border border-slate-300 text-sm rounded-lg px-2.5 py-1.5">
+                    <img id="langIcon" src="https://flagcdn.com/w20/id.png" alt="ID Flag" class="w-5 h-auto object-contain rounded-sm shadow-xs">
+                    <select id="langSwitch" onchange="changeLanguage(this.value)" class="bg-transparent focus:outline-none cursor-pointer font-medium">
+                        <option value="id">ID</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+
+                <!-- Tombol Compro dengan Ikon Download (Desktop) -->
+                <a href="Company_Profile_PT_SKJ.pdf" download="Company_Profile_PT_SKJ.pdf" data-i18n="cta_download" class="hidden lg:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-blue-600 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition shadow-sm gap-2">
+                    <i class="fa-solid fa-download text-xs"></i> <span>Compro</span>
+                </a>
+
+                <!-- Tombol Konsultasi (Desktop) -->
+                <a href="#kontak" data-i18n="cta_consult" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition shadow-sm">
+                    Konsultasi Gratis
+                </a>
+
+                <!-- Tombol Hamburger (Icon Baris 3 untuk Mobile) -->
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition focus:outline-none" aria-label="Menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Panel Menu Mobile -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-lg transition-all">
+            <a href="#beranda" onclick="toggleMobileMenu()" data-i18n="nav_home" class="block font-medium text-slate-700 hover:text-blue-600 py-1">Beranda</a>
+            <a href="#about" onclick="toggleMobileMenu()" data-i18n="nav_about" class="block font-medium text-slate-700 hover:text-blue-600 py-1">Tentang Kami</a>
+            <a href="#services" onclick="toggleMobileMenu()" data-i18n="nav_services" class="block font-medium text-slate-700 hover:text-blue-600 py-1">Produk & Layanan</a>
+            <a href="#articles" onclick="toggleMobileMenu()" data-i18n="nav_articles" class="block font-medium text-slate-700 hover:text-blue-600 py-1">Artikel</a>
+            <a href="#kontak" onclick="toggleMobileMenu()" data-i18n="nav_contact" class="block font-medium text-slate-700 hover:text-blue-600 py-1">Kontak</a>
+            <div class="pt-2 space-y-2">
+                <a href="company-profile-skj.pdf" download="Company_Profile_PT_SKJ.pdf" onclick="toggleMobileMenu()" data-i18n="cta_download" class="block text-center w-full py-2.5 bg-blue-50 border border-blue-200 text-blue-600 rounded-lg font-semibold hover:bg-blue-100 transition">
+                    <i class="fa-solid fa-download mr-1"></i> Compro
+                </a>
+                <a href="#kontak" onclick="toggleMobileMenu()" data-i18n="cta_consult" class="block text-center w-full py-2.5 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+                    Konsultasi Gratis
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main>
+
+        <!-- 1. SEKSI BERANDA (HOME) -->
+        <section id="beranda" class="relative overflow-hidden py-16 lg:py-28 bg-gradient-to-b from-white via-slate-50 to-slate-100/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <div class="space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold tracking-wide uppercase">
+                            <i class="fa-solid fa-circle-nodes text-blue-600"></i> <span data-i18n="hero_badge">Mitra Strategis Managed Service & Solusi Digital Profesional</span>
+                        </div>
+                        
+                        <h1 id="typewriterHeading" class="typewriter-text text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight min-h-[140px] flex items-center justify-center lg:justify-start">
+                            <!-- Dimuat otomatis via script -->
+                        </h1>
+                        
+                        <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed text-justify" data-i18n="hero_desc">
+                            Menghadirkan layanan end-to-end mulai dari Managed Service, Konstruksi Jaringan, Infrastruktur Fiber Optic, hingga Solusi Digital handal untuk kebutuhan bisnis Anda.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#services" class="px-7 py-4 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-500/25 text-center flex items-center justify-center gap-2">
+                                <span data-i18n="hero_btn_services">Jelajahi Solusi</span> <i class="fa-solid fa-arrow-right text-sm"></i>
+                            </a>
+                            <a href="#kontak" class="px-7 py-4 rounded-xl border border-slate-300 font-semibold text-slate-700 hover:bg-slate-100 transition text-center flex items-center justify-center">
+                                <span data-i18n="hero_btn_contact">Hubungi Kami</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="relative flex justify-center">
+                        <div class="w-full max-w-lg relative group">
+                            <div class="relative h-80 sm:h-[400px] rounded-3xl overflow-hidden shadow-2xl bg-transparent">
+                                <img id="heroPortfolioImg" src="01_managed_service_provider.png" alt="Portfolio SKJ" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                                <div class="absolute bottom-6 left-6 right-6 text-white">
+                                    <span id="heroPortfolioTag" class="text-xs font-semibold px-3 py-1 bg-blue-600 rounded-full shadow-md">Managed Service</span>
+                                    <h4 id="heroPortfolioTitle" class="text-lg sm:text-xl font-bold mt-2 leading-snug">Pengelolaan Infrastruktur Telekomunikasi 24/7</h4>
+                                </div>
+                            </div>
+
+                            <button onclick="prevHeroSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer z-10 opacity-0 group-hover:opacity-100 shadow-md" aria-label="Sebelumnya">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="nextHeroSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer z-10 opacity-0 group-hover:opacity-100 shadow-md" aria-label="Berikutnya">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+
+                            <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 py-1.5 px-4 bg-white/90 backdrop-blur-md rounded-full shadow-md border border-slate-200">
+                                <div id="heroDots" class="flex gap-1.5 items-center"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK VALUE PROPS -->
+        <section class="py-12 bg-white border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl shrink-0 font-bold shadow-md shadow-blue-500/20">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-1" data-i18n="prop_1_title">High Standard & Safety</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed text-justify" data-i18n="prop_1_desc">Standar keselamatan kerja tinggi serta kepatuhan penuh terhadap SLA proyek klien.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl shrink-0 font-bold shadow-md shadow-blue-500/20">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-1" data-i18n="prop_2_title">Integrated Connectivity</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed text-justify" data-i18n="prop_2_desc">Solusi end-to-end dari konstruksi sipil fiber optic hingga pengelolaan jaringan server.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl shrink-0 font-bold shadow-md shadow-blue-500/20">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-1" data-i18n="prop_3_title">24/7 Expert Support</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed text-justify" data-i18n="prop_3_desc">Dukungan tim teknisi berpengalaman siap siaga untuk pemeliharaan preventif & korektif.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SEKSI TENTANG KAMI -->
+        <section id="about" class="py-16 lg:py-24 bg-slate-100/60 border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <h2 class="text-3xl font-bold tracking-tight" data-i18n="about_title">Tentang PT Sentral Konstruksi Jaringan</h2>
+                    <p class="text-slate-600 text-justify" data-i18n="about_desc">
+                        PT. Sentral Konstruksi Jaringan (SKJ) adalah perusahaan nasional terdepan di bidang konstruksi jaringan internet, telekomunikasi, dan solusi digital yang berkomitmen menghadirkan infrastruktur andal, modern, serta merata di seluruh Indonesia. Melalui layanan Managed Service Provider (MSP) serta keahlian konstruksi sipil jaringan telekomunikasi dan fiber optik, SKJ siap memberikan solusi terbaik yang berorientasi pada kualitas, efisiensi, dan keberlanjutan digitalisasi.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="about_card1_title">Visi & Misi</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed text-justify" data-i18n="about_card1_desc">
+                            Kami berkomitmen menjadi perusahaan terdepan dan terpercaya di Indonesia dalam bidang konstruksi jaringan internet, telekomunikasi, dan infrastruktur digital dengan menyediakan layanan yang inovatif, terintegrasi, serta ramah lingkungan. Sebagai mitra strategis bagi seluruh pemangku kepentingan, kami berupaya mendukung pemerataan akses internet yang cepat, stabil, dan terjangkau hingga ke pelosok negeri, sekaligus memperkuat kompetensi sumber daya manusia guna menghadapi tantangan industri teknologi informasi melalui kolaborasi digital.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-users-gear"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="about_card2_title">Tim Profesional & Alat Memadai</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed text-justify" data-i18n="about_card2_desc">
+                            Didukung oleh tenaga ahli berpengalaman dan integrasi teknologi peralatan terkini, kami memastikan setiap pekerjaan pembangunan infrastruktur berjalan dengan presisi tinggi. Kami menerapkan standar kerja yang ketat serta pemanfaatan perangkat modern guna mengoptimalkan efisiensi di lapangan. Hal ini menjamin bahwa setiap proyek konstruksi jaringan yang kami kerjakan mampu memberikan ketahanan jangka panjang dan performa sistem yang dapat diandalkan secara maksimal.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold" data-i18n="about_card3_title">Kepatuhan & Komitmen</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed text-justify" data-i18n="about_card3_desc">
+                            Kami berkomitmen untuk menjaga transparansi, integritas, dan profesionalisme tinggi dalam setiap proyek pembangunan infrastruktur digital. Seluruh proses pelaksanaan dikelola secara disiplin untuk memastikan pemenuhan standar SLA (Service Level Agreement) serta regulasi industri yang berlaku. Dengan pendekatan ini, kami tidak hanya menghadirkan hasil yang optimal dan efisien, tetapi juga membangun hubungan kemitraan yang berkelanjutan dan saling percaya dengan seluruh pemangku kepentingan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SEKSI PRODUK & LAYANAN -->
+        <section id="services" class="py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <h2 class="text-3xl font-bold tracking-tight" data-i18n="services_main_title">Produk & Layanan Kami</h2>
+                    <p class="text-slate-600 text-justify sm:text-center" data-i18n="services_main_desc">
+                        Solusi profesional mencakup managed service, konstruksi sipil, pemeliharaan site, hingga solusi digital terintegrasi.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Layanan 01 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4 relative overflow-hidden group hover:border-blue-500 transition">
+                        <div class="absolute top-4 right-4 text-4xl font-extrabold text-slate-100 select-none">01</div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" data-i18n="srv_1_title">Managed Service Provider</h3>
+                        <div class="my-4 rounded-xl overflow-hidden border border-slate-200 cursor-pointer group/img relative" onclick="openServiceSlider(0)">
+                            <img src="01_managed_service_provider.png" alt="Managed Service" class="w-full h-48 object-cover transition duration-300 group-hover/img:scale-105">
+                            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center text-white font-medium text-sm gap-2">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="srv_popup_hint">Klik untuk Pop-up & Slide Foto</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed text-justify" data-i18n="srv_1_desc">
+                            Menyediakan layanan pengelolaan dan pemeliharaan infrastruktur telekomunikasi, jaringan fiber optic (OSP) dan fasilitas Civil, Mechanical & Electrical (CME) termasuk pemeliharaan TRAFO & CUBICLE, serta Infrastruktur Digital (IT), guna memastikan operasional berjalan optimal, stabil, dan berkelanjutan.
+                        </p>
+                    </div>
+
+                    <!-- Layanan 02 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4 relative overflow-hidden group hover:border-blue-500 transition">
+                        <div class="absolute top-4 right-4 text-4xl font-extrabold text-slate-100 select-none">02</div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-hard-hat"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" data-i18n="srv_2_title">Konstruksi Sipil</h3>
+                        <div class="my-4 rounded-xl overflow-hidden border border-slate-200 cursor-pointer group/img relative" onclick="openServiceSlider(1)">
+                            <img src="03_penarikan_kabel_sipil.png" alt="Konstruksi Sipil" class="w-full h-48 object-cover transition duration-300 group-hover/img:scale-105">
+                            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center text-white font-medium text-sm gap-2">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="srv_popup_hint">Klik untuk Pop-up & Slide Foto</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed text-justify" data-i18n="srv_2_desc">
+                            Kami menyediakan layanan konstruksi sipil yang terintegrasi, meliputi pekerjaan galian (trenching) dan open pit untuk mendukung pembangunan jaringan fiber optic dan infrastruktur telekomunikasi lainnya. Didukung oleh tenaga kerja berpengalaman dan peralatan yang memadai, kami berkomitmen menghadirkan hasil pekerjaan yang presisi, aman, serta tepat waktu.
+                        </p>
+                    </div>
+
+                    <!-- Layanan 03 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4 relative overflow-hidden group hover:border-blue-500 transition">
+                        <div class="absolute top-4 right-4 text-4xl font-extrabold text-slate-100 select-none">03</div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" data-i18n="srv_3_title">PM & CM Site</h3>
+                        <div class="my-4 rounded-xl overflow-hidden border border-slate-200 cursor-pointer group/img relative" onclick="openServiceSlider(2)">
+                            <img src="04_maintenance_solusi_digital.png" alt="PM & CM Site" class="w-full h-48 object-cover transition duration-300 group-hover/img:scale-105">
+                            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center text-white font-medium text-sm gap-2">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="srv_popup_hint">Klik untuk Pop-up & Slide Foto</span>
+                            </div>
+                        </div>
+                        <ul class="text-slate-600 text-sm space-y-2 list-disc pl-5 text-justify">
+                            <li><strong class="text-slate-800" data-i18n="srv_3_li1_title">Preventive Maintenance:</strong> <span data-i18n="srv_3_li1_desc">inspeksi berkala, pengecekan perangkat, pembersihan, pengujian fungsi, dan dokumentasi kondisi site</span></li>
+                            <li><strong class="text-slate-800" data-i18n="srv_3_li2_title">Corrective Maintenance:</strong> <span data-i18n="srv_3_li2_desc">troubleshooting, perbaikan gangguan jaringan/perangkat, penggantian komponen, dan pemulihan layanan</span></li>
+                            <li><strong class="text-slate-800" data-i18n="srv_3_li3_title">Monitoring & Reporting:</strong> <span data-i18n="srv_3_li3_desc">pelaporan berkala, SLA compliance, dan analisa performa site</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Layanan 04 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4 relative overflow-hidden group hover:border-blue-500 transition">
+                        <div class="absolute top-4 right-4 text-4xl font-extrabold text-slate-100 select-none">04</div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" data-i18n="srv_4_title">Digital Solution (by Solution Exa Digital)</h3>
+                        <div class="my-4 rounded-xl overflow-hidden border border-slate-200 cursor-pointer group/img relative" onclick="openServiceSlider(3)">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Digital Solution" class="w-full h-48 object-cover transition duration-300 group-hover/img:scale-105">
+                            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center text-white font-medium text-sm gap-2">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="srv_popup_hint">Klik untuk Pop-up & Slide Foto</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed text-justify" data-i18n="srv_4_desc">
+                            Sebagai penyedia solusi teknologi terintegrasi, kami menghadirkan layanan Pengembangan Aplikasi/Web Enterprise, Mobile, dan Otomasi Bisnis yang andal. Kami fokus pada teknologi terbarukan dan adaptif untuk meningkatkan produktivitas serta pertumbuhan bisnis Anda di era digital.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SEKSI ARTIKEL -->
+        <section id="articles" class="py-16 lg:py-24 bg-slate-100/60 border-y border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <h2 class="text-3xl font-bold tracking-tight" data-i18n="art_main_title">Artikel & Wawasan</h2>
+                    <p class="text-slate-600 text-justify sm:text-center" data-i18n="art_main_desc">Informasi terbaru seputar dunia konstruksi jaringan, telekomunikasi, dan infrastruktur.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Artikel 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col">
+                        <div class="h-48 bg-slate-200 relative cursor-pointer group/art" onclick="openArticleSlider(0)">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Artikel 1" class="w-full h-full object-cover group-hover/art:scale-105 transition duration-300">
+                            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/art:opacity-100 transition flex items-center justify-center text-white font-medium text-sm gap-2">
+                                <i class="fa-solid fa-images"></i> <span data-i18n="art_popup_hint">Pop-up & Slide Galeri Foto</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div class="space-y-2">
+                                <span class="text-xs font-semibold text-blue-600" data-i18n="art_1_tag">Infrastruktur • 2026</span>
+                                <h3 class="text-xl font-semibold leading-snug" data-i18n="art_1_title">Peran Vital Managed Service dalam Stabilitas Jaringan Telekomunikasi</h3>
+                                <p class="text-slate-600 text-sm line-clamp-2 text-justify" data-i18n="art_1_desc">
+                                    Menjaga keandalan jaringan melalui pemeliharaan preventif dan korektif secara berkala oleh teknisi ahli SKJ.
+                                </p>
+                            </div>
+                            <button onclick="openArticleModal(1)" class="text-left text-sm font-semibold text-blue-600 hover:underline cursor-pointer inline-flex items-center gap-1">
+                                <span data-i18n="art_read_more">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Artikel 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col">
+                        <div class="h-48 bg-slate-200 relative cursor-pointer group/art" onclick="openArticleSlider(1)">
+                            <img src="03_penarikan_kabel_sipil.png" alt="Artikel 2" class="w-full h-full object-cover group-hover/art:scale-105 transition duration-300">
+                            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/art:opacity-100 transition flex items-center justify-center text-white font-medium text-sm gap-2">
+                                <i class="fa-solid fa-images"></i> <span data-i18n="art_popup_hint">Pop-up & Slide Galeri Foto</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div class="space-y-2">
+                                <span class="text-xs font-semibold text-blue-600" data-i18n="art_2_tag">Konstruksi • Sipil</span>
+                                <h3 class="text-xl font-semibold leading-snug" data-i18n="art_2_title">Teknik Trenching dan Open Pit yang Aman untuk Fiber Optic</h3>
+                                <p class="text-slate-600 text-sm line-clamp-2 text-justify" data-i18n="art_2_desc">
+                                    Standar pengerjaan galian tanah yang presisi dan aman guna mendukung suksesnya instalasi kabel jaringan bawah tanah.
+                                </p>
+                            </div>
+                            <button onclick="openArticleModal(2)" class="text-left text-sm font-semibold text-blue-600 hover:underline cursor-pointer inline-flex items-center gap-1">
+                                <span data-i18n="art_read_more">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Artikel 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col">
+                        <div class="h-48 bg-slate-200 relative cursor-pointer group/art" onclick="openArticleSlider(2)">
+                            <img src="04_maintenance_solusi_digital.png" alt="Artikel 3" class="w-full h-full object-cover group-hover/art:scale-105 transition duration-300">
+                            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/art:opacity-100 transition flex items-center justify-center text-white font-medium text-sm gap-2">
+                                <i class="fa-solid fa-images"></i> <span data-i18n="art_popup_hint">Pop-up & Slide Galeri Foto</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div class="space-y-2">
+                                <span class="text-xs font-semibold text-blue-600" data-i18n="art_3_tag">Teknologi • Solusi</span>
+                                <h3 class="text-xl font-semibold leading-snug" data-i18n="art_3_title">Integrasi Perangkat Listrik Trafo & Cubicle pada Site Telekomunikasi</h3>
+                                <p class="text-slate-600 text-sm line-clamp-2 text-justify" data-i18n="art_3_desc">
+                                    Menjaga kestabilan pasokan daya listrik site melalui pemeliharaan fasilitas Civil, Mechanical & Electrical (CME).
+                                </p>
+                            </div>
+                            <button onclick="openArticleModal(3)" class="text-left text-sm font-semibold text-blue-600 hover:underline cursor-pointer inline-flex items-center gap-1">
+                                <span data-i18n="art_read_more">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SEKSI KONTAK -->
+        <section id="kontak" class="py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <h2 class="text-3xl font-bold tracking-tight" data-i18n="contact_title">Hubungi Kami</h2>
+                        <p class="text-slate-600 text-justify" data-i18n="contact_desc">
+                            Konsultasikan kebutuhan proyek konstruksi jaringan dan infrastruktur telekomunikasi serta digital Anda bersama SKJ.
+                        </p>
+                        <div class="space-y-4 pt-4">
+                            <!-- Kantor Batam -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-1">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm" data-i18n="contact_addr_batam">Kantor Batam (Pusat / Workshop)</h4>
+                                    <p class="text-slate-600 text-sm">Kavling Bukit Kamboja Dapur 12 Blok EE No 12A, Kec. Sagulung, Kota Batam, Kepulauan Riau 29472</p>
+                                </div>
+                            </div>
+                            <!-- Kantor Jabodetabek -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-1">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm" data-i18n="contact_addr_jabo">Kantor Jabodetabek</h4>
+                                    <p class="text-slate-600 text-sm" data-i18n="contact_addr_jabo_val">Area Layanan & Perwakilan Operasional Jabodetabek, Indonesia</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm">Email</h4>
+                                    <p class="text-slate-600 text-sm">admin@sentralkonstruksi.net</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/company/pt-sentral-konstruksi-jaringan/posts/?feedView=all" target="_blank" class="text-blue-600 text-sm hover:underline">PT Sentral Konstruksi Jaringan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert(currentLang === 'en' ? 'Message successfully sent to PT Sentral Konstruksi Jaringan!' : 'Pesan berhasil dikirim ke PT Sentral Konstruksi Jaringan!');">
+                            <div>
+                                <label class="block text-sm font-medium mb-1" data-i18n="form_name">Nama Lengkap</label>
+                                <input type="text" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-transparent focus:outline-none focus:border-blue-600" data-i18n-placeholder="form_name_ph" placeholder="Nama Anda">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1" data-i18n="form_email">Email</label>
+                                <input type="email" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-transparent focus:outline-none focus:border-blue-600" placeholder="email@domain.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1" data-i18n="form_message">Pesan / Proyek</label>
+                                <textarea rows="4" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-transparent focus:outline-none focus:border-blue-600" data-i18n-placeholder="form_message_ph" placeholder="Tuliskan detail kebutuhan proyek..."></textarea>
+                            </div>
+                            <button type="submit" data-i18n="form_btn" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition shadow-sm">
+                                Kirim Pesan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- TOMBOL WHATSAPP MENGAMBANG -->
+    <a href="https://wa.me/6285173172715?text=Halo%20PT%20Sentral%20Konstruksi%20Jaringan,%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20infrastruktur." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition transform hover:scale-110 cursor-pointer" aria-label="Chat WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- MODAL SLIDER LAYANAN -->
+    <div id="serviceSliderModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl border border-slate-200 relative">
+            <button onclick="closeServiceSlider()" class="absolute top-4 right-4 z-10 bg-black/60 hover:bg-black text-white w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="relative h-72 sm:h-96 bg-black flex items-center justify-center">
+                <img id="serviceSliderImg" src="" alt="Slider Layanan" class="max-h-full max-w-full object-contain">
+                <button onclick="prevServiceSlide()" class="absolute left-4 bg-black/50 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="nextServiceSlide()" class="absolute right-4 bg-black/50 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="p-4 bg-slate-50 text-center">
+                <h4 id="serviceSliderTitle" class="font-bold text-lg text-slate-800"></h4>
+                <p id="serviceSliderCaption" class="text-sm text-slate-600 mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL SLIDER ARTIKEL -->
+    <div id="articleSliderModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl border border-slate-200 relative">
+            <button onclick="closeArticleSlider()" class="absolute top-4 right-4 z-10 bg-black/60 hover:bg-black text-white w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="relative h-72 sm:h-96 bg-black flex items-center justify-center">
+                <img id="sliderImg" src="" alt="Slider Artikel" class="max-h-full max-w-full object-contain">
+                <button onclick="prevSlide()" class="absolute left-4 bg-black/50 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-4 bg-black/50 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="p-4 bg-slate-50 text-center">
+                <p id="sliderCaption" class="text-sm font-medium text-slate-700"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL BACA ARTIKEL -->
+    <div id="articleReadModal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 space-y-6 relative">
+            <button onclick="closeArticleModal()" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="space-y-2">
+                <span id="modalArticleCategory" class="text-xs font-semibold text-blue-600"></span>
+                <h2 id="modalArticleTitle" class="text-2xl font-bold leading-tight"></h2>
+            </div>
+            <div class="rounded-xl overflow-hidden h-60">
+                <img id="modalArticleImg" src="" alt="Artikel" class="w-full h-full object-cover">
+            </div>
+            <div id="modalArticleContent" class="text-slate-600 text-sm sm:text-base leading-relaxed space-y-4 text-justify"></div>
+            <div class="pt-4 border-t border-slate-100 flex justify-end">
+                <button onclick="closeArticleModal()" data-i18n="art_close_btn" class="px-5 py-2.5 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition cursor-pointer">Tutup Artikel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 py-12 bg-slate-900 text-slate-300 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <!-- Kolom 1: Logo & Tagline -->
+            <div class="space-y-4">
+                <img src="LOGO_KOP_SURAT-removebg-preview.png" alt="Logo SKJ" class="h-15 w-auto object-contain brightness-0 invert">
+                <p class="text-xs text-slate-400 text-justify" data-i18n="footer_tagline">Your Network, Our Connection. Managed Service Specialist & Digital Solution.</p>
+                <div class="flex items-center gap-4 pt-2">
+                    <a href="https://www.linkedin.com/company/pt-sentral-konstruksi-jaringan/posts/?feedView=all" target="_blank" class="hover:text-blue-400 text-lg"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:admin@sentralkonstruksi.net" class="hover:text-blue-400 text-lg"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Kolom 2: Services -->
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider" data-i18n="footer_col_services">Services</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="#services" class="hover:text-white transition" data-i18n="srv_1_title">Managed Service Provider</a></li>
+                    <li><a href="#services" class="hover:text-white transition" data-i18n="srv_2_title">Konstruksi Sipil</a></li>
+                    <li><a href="#services" class="hover:text-white transition" data-i18n="srv_3_title">PM & CM Site</a></li>
+                    <li><a href="#services" class="hover:text-white transition" data-i18n="srv_4_title">Digital Solution</a></li>
+                </ul>
+            </div>
+
+            <!-- Kolom 3: About SKJ -->
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider" data-i18n="footer_col_about">About SKJ</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="#about" class="hover:text-white transition" data-i18n="nav_about">Tentang Kami</a></li>
+                    <li><a href="#services" class="hover:text-white transition" data-i18n="nav_services">Produk & Layanan</a></li>
+                    <li><a href="#articles" class="hover:text-white transition" data-i18n="nav_articles">Artikel</a></li>
+                    <li><a href="#kontak" class="hover:text-white transition" data-i18n="nav_contact">Kontak</a></li>
+                </ul>
+            </div>
+
+            <!-- Kolom 4: Contact & Locations (Batam & Jabodetabek) -->
+            <div class="space-y-3">
+                <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider" data-i18n="footer_col_contact">Contact & Locations</h4>
+                <p class="text-xs flex items-center gap-2"><i class="fa-solid fa-envelope text-blue-400"></i> admin@sentralkonstruksi.net</p>
+                <p class="text-xs flex items-center gap-2"><i class="fa-solid fa-phone text-blue-400"></i> +62 851-7317-2715 / +62 813-7462-9671</p>
+                <div class="pt-2 space-y-2 text-xs text-slate-400">
+                    <p><strong class="text-white" data-i18n="footer_batam">Batam (Pusat):</strong> Kavling Bukit Kamboja Dapur 12 Blok EE No 12A, Sagulung, Batam</p>
+                    <p><strong class="text-white" data-i18n="footer_jabo">Jabodetabek:</strong> Area Layanan & Perwakilan Operasional</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
+            <p>© 2026 PT Sentral Konstruksi Jaringan (SKJ). <span data-i18n="footer_rights">Hak Cipta Dilindungi.</span></p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        let typewriterInterval;
+        function initTypewriter() {
+            const heading = document.getElementById('typewriterHeading');
+            if (!heading) return;
+
+            const phrases = [
+                translations[currentLang].hero_title_1,
+                translations[currentLang].hero_title_2
+            ];
+
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let delay = 100;
+
+            function loop() {
+                const currentPhrase = phrases[phraseIndex];
+
+                if (isDeleting) {
+                    heading.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                    delay = 40;
+                } else {
+                    heading.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                    delay = 80;
+                }
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    delay = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    delay = 500;
+                }
+
+                typewriterInterval = setTimeout(loop, delay);
+            }
+
+            clearTimeout(typewriterInterval);
+            loop();
+        }
+
+        const heroPortfolioSlides = [
+            {
+                url: '01_managed_service_provider.png',
+                tagId: 'tag_managed',
+                titleId: 'title_managed'
+            },
+            {
+                url: '03_penarikan_kabel_sipil.png',
+                tagId: 'tag_civil',
+                titleId: 'title_civil'
+            },
+            {
+                url: '04_maintenance_solusi_digital.png',
+                tagId: 'tag_pmcm',
+                titleId: 'title_pmcm'
+            },
+            {
+                url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+                tagId: 'tag_digital',
+                titleId: 'title_digital'
+            }
+        ];
+        let currentHeroIndex = 0;
+        let heroSlideTimer;
+
+        function updateHeroPortfolio() {
+            const slide = heroPortfolioSlides[currentHeroIndex];
+            const imgElement = document.getElementById('heroPortfolioImg');
+            
+            imgElement.style.opacity = '0.3';
+            setTimeout(() => {
+                imgElement.src = slide.url;
+                imgElement.style.opacity = '1';
+            }, 200);
+
+            document.getElementById('heroPortfolioTag').textContent = translations[currentLang][slide.tagId];
+            document.getElementById('heroPortfolioTitle').textContent = translations[currentLang][slide.titleId];
+            
+            const dotsContainer = document.getElementById('heroDots');
+            dotsContainer.innerHTML = '';
+            heroPortfolioSlides.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = `w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === currentHeroIndex ? 'bg-blue-600 w-6' : 'bg-slate-400/70'}`;
+                dot.onclick = () => {
+                    currentHeroIndex = idx;
+                    updateHeroPortfolio();
+                    resetHeroTimer();
+                };
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function nextHeroSlide() {
+            currentHeroIndex = (currentHeroIndex + 1) % heroPortfolioSlides.length;
+            updateHeroPortfolio();
+            resetHeroTimer();
+        }
+
+        function prevHeroSlide() {
+            currentHeroIndex = (currentHeroIndex - 1 + heroPortfolioSlides.length) % heroPortfolioSlides.length;
+            updateHeroPortfolio();
+            resetHeroTimer();
+        }
+
+        function resetHeroTimer() {
+            clearInterval(heroSlideTimer);
+            heroSlideTimer = setInterval(nextHeroSlide, 4500);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initTypewriter();
+            updateHeroPortfolio();
+            resetHeroTimer();
+        });
+
+        const serviceGalleries = [
+            [
+                { url: '01_managed_service_provider.png', titleKey: 'srv_1_title', captionKey: 'service_cap_1_1' },
+                { url: '02_trafo.png', titleKey: 'srv_1_title', captionKey: 'service_cap_1_2' },
+                { url: '01_managed_service_provider.png', titleKey: 'srv_1_title', captionKey: 'service_cap_1_3' }
+            ],
+            [
+                { url: '03_penarikan_kabel_sipil.png', titleKey: 'srv_2_title', captionKey: 'service_cap_2_1' },
+                { url: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80', titleKey: 'srv_2_title', captionKey: 'service_cap_2_2' }
+            ],
+            [
+                { url: 'pmcm-mku.png', titleKey: 'srv_3_title', captionKey: 'service_cap_3_1' },
+                { url: 'pmcm-mku2.png', titleKey: 'srv_3_title', captionKey: 'service_cap_3_2' }
+            ],
+            [
+                { url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80', titleKey: 'srv_4_title', captionKey: 'service_cap_4_1' },
+                { url: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80', titleKey: 'srv_4_title', captionKey: 'service_cap_4_2' }
+            ]
+        ];
+        let currentServiceCategory = 0;
+        let currentServiceSlide = 0;
+
+        function openServiceSlider(categoryIndex) {
+            currentServiceCategory = categoryIndex;
+            currentServiceSlide = 0;
+            updateServiceSliderContent();
+            document.getElementById('serviceSliderModal').classList.remove('hidden');
+        }
+        function closeServiceSlider() {
+            document.getElementById('serviceSliderModal').classList.add('hidden');
+        }
+        function updateServiceSliderContent() {
+            const item = serviceGalleries[currentServiceCategory][currentServiceSlide];
+            document.getElementById('serviceSliderImg').src = item.url;
+            document.getElementById('serviceSliderTitle').textContent = translations[currentLang][item.titleKey] || '';
+            const rawCaption = translations[currentLang][item.captionKey] || '';
+            document.getElementById('serviceSliderCaption').textContent = rawCaption + ` (${currentServiceSlide + 1}/${serviceGalleries[currentServiceCategory].length})`;
+        }
+        function nextServiceSlide() {
+            currentServiceSlide = (currentServiceSlide + 1) % serviceGalleries[currentServiceCategory].length;
+            updateServiceSliderContent();
+        }
+        function prevServiceSlide() {
+            currentServiceSlide = (currentServiceSlide - 1 + serviceGalleries[currentServiceCategory].length) % serviceGalleries[currentServiceCategory].length;
+            updateServiceSliderContent();
+        }
+
+        const articleGalleries = [
+            [
+                { url: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80', captionKey: 'art_gal_1_1' },
+                { url: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80', captionKey: 'art_gal_1_2' },
+                { url: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80', captionKey: 'art_gal_1_3' }
+            ],
+            [
+                { url: '03_penarikan_kabel_sipil.png', captionKey: 'art_gal_2_1' },
+                { url: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80', captionKey: 'art_gal_2_2' }
+            ],
+            [
+                { url: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80', captionKey: 'art_gal_3_1' },
+                { url: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80', captionKey: 'art_gal_3_2' }
+            ]
+        ];
+        let currentGalleryIndex = 0;
+        let currentSlideIndex = 0;
+
+        function openArticleSlider(galleryIndex) {
+            currentGalleryIndex = galleryIndex;
+            currentSlideIndex = 0;
+            updateSliderContent();
+            document.getElementById('articleSliderModal').classList.remove('hidden');
+        }
+        function closeArticleSlider() {
+            document.getElementById('articleSliderModal').classList.add('hidden');
+        }
+        function updateSliderContent() {
+            const currentItem = articleGalleries[currentGalleryIndex][currentSlideIndex];
+            const rawCap = translations[currentLang][currentItem.captionKey] || '';
+            document.getElementById('sliderImg').src = currentItem.url;
+            document.getElementById('sliderCaption').textContent = rawCap + ` (${currentSlideIndex + 1}/${articleGalleries[currentGalleryIndex].length})`;
+        }
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % articleGalleries[currentGalleryIndex].length;
+            updateSliderContent();
+        }
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + articleGalleries[currentGalleryIndex].length) % articleGalleries[currentGalleryIndex].length;
+            updateSliderContent();
+        }
+
+        const articleDetails = {
+            1: {
+                id: 1,
+                category: { id: "Infrastruktur • 2026", en: "Infrastructure • 2026" },
+                title: { 
+                    id: "Peran Vital Managed Service dalam Stabilitas Jaringan Telekomunikasi", 
+                    en: "The Vital Role of Managed Services in Telecommunication Network Stability" 
+                },
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
+                content: {
+                    id: `
+                        <p>Dalam era digital yang berkembang pesat di tahun 2026 ini, kebutuhan akan jaringan telekomunikasi yang stabil dan tanpa gangguan adalah prioritas utama bagi korporasi maupun penyedia layanan internet. PT Sentral Konstruksi Jaringan (SKJ) menghadirkan layanan Managed Service komprehensif untuk menjawab tantangan tersebut.</p>
+                        <p>Melalui pemeliharaan preventif secara berkala, troubleshooting cepat, serta monitoring performa jaringan secara real-time oleh tenaga ahli bersertifikasi, SKJ memastikan setiap site telekomunikasi klien beroperasi dengan tingkat ketersediaan (uptime) yang maksimal serta mematuhi standar SLA yang ketat.</p>
+                    `,
+                    en: `
+                        <p>In the rapidly developing digital era of 2026, the need for stable, uninterrupted telecommunication networks is a top priority for corporations and internet service providers alike. PT Sentral Konstruksi Jaringan (SKJ) provides comprehensive Managed Services to address these challenges.</p>
+                        <p>Through regular preventive maintenance, rapid troubleshooting, and real-time network performance monitoring by certified experts, SKJ ensures every client telecommunication site operates with maximum uptime and strict compliance with SLA standards.</p>
+                    `
+                }
+            },
+            2: {
+                id: 2,
+                category: { id: "Konstruksi • Sipil", en: "Construction • Civil" },
+                title: { 
+                    id: "Teknik Trenching dan Open Pit yang Aman untuk Fiber Optic", 
+                    en: "Safe Trenching and Open Pit Techniques for Fiber Optics" 
+                },
+                image: "03_penarikan_kabel_sipil.png",
+                content: {
+                    id: `
+                        <p>Instalasi kabel fiber optic bawah tanah memerlukan perencanaan serta eksekusi teknik konstruksi sipil yang matang. Metode trenching (galian parit) dan open pit yang diterapkan oleh SKJ selalu mengutamakan aspek keselamatan kerja (K3) serta presisi kedalaman galian.</p>
+                        <p>Dengan dukungan alat berat yang memadai serta tim operasional berpengalaman di lapangan, SKJ menjamin jalur kabel terlindungi secara optimal dari risiko gangguan eksternal sekaligus menjaga kerapian infrastruktur publik di Batam, Jabodetabek, dan sekitarnya.</p>
+                    `,
+                    en: `
+                        <p>Underground fiber optic cable installation requires mature planning and execution of civil construction techniques. The trenching and open pit methods applied by SKJ always prioritize occupational safety (HSE) and excavation depth precision.</p>
+                        <p>Backed by adequate heavy equipment and an experienced operational team in the field, SKJ ensures cable routes are optimally protected from external disruption risks while maintaining the neatness of public infrastructure in Batam, Jabodetabek, and surrounding areas.</p>
+                    `
+                }
+            },
+            3: {
+                id: 3,
+                category: { id: "Teknologi • Solusi", en: "Technology • Solution" },
+                title: { 
+                    id: "Integrasi Perangkat Listrik Trafo & Cubicle pada Site Telekomunikasi", 
+                    en: "Electrical Transformer & Cubicle Integration at Telecom Sites" 
+                },
+                image: "04_maintenance_solusi_digital.png",
+                content: {
+                    id: `
+                        <p>Pasokan daya listrik yang stabil merupakan jantung dari operasional perangkat telekomunikasi di setiap site. Kegagalan kelistrikan sekecil apa pun dapat berdampak pada putusnya layanan komunikasi secara massal.</p>
+                        <p>SKJ menyediakan layanan pemeliharaan fasilitas Civil, Mechanical & Electrical (CME) secara menyeluruh, termasuk perawatan khusus pada perangkat Trafo dan Cubicle. Langkah ini dilakukan guna mengantisipasi lonjakan beban listrik, mencegah korsleting, dan memastikan suplai daya site selalu berada dalam kondisi prima.</p>
+                    `,
+                    en: `
+                        <p>A stable power supply is the heart of telecommunication device operations at every site. Even the smallest electrical failure can result in massive communication service outages.</p>
+                        <p>SKJ provides thorough Civil, Mechanical & Electrical (CME) facility maintenance services, including specialized maintenance for Transformer and Cubicle devices. This step is carried out to anticipate power surges, prevent short circuits, and ensure site power supplies are always in prime condition.</p>
+                    `
+                }
+            }
+        };
+
+        let currentOpenArticleId = 1;
+
+        function openArticleModal(articleId) {
+            currentOpenArticleId = articleId;
+            const article = articleDetails[articleId];
+            if (!article) return;
+            document.getElementById('modalArticleCategory').textContent = article.category[currentLang];
+            document.getElementById('modalArticleTitle').textContent = article.title[currentLang];
+            document.getElementById('modalArticleImg').src = article.image;
+            document.getElementById('modalArticleContent').innerHTML = article.content[currentLang];
+            document.getElementById('articleReadModal').classList.remove('hidden');
+        }
+        function closeArticleModal() {
+            document.getElementById('articleReadModal').classList.add('hidden');
+        }
+
+        let currentLang = 'id';
+        const translations = {
+            id: {
+                nav_home: "Beranda",
+                nav_about: "Tentang Kami",
+                nav_services: "Produk & Layanan",
+                nav_articles: "Artikel",
+                nav_contact: "Kontak",
+                cta_consult: "Konsultasi Gratis",
+                cta_download: "Compro",
+                
+                hero_badge: "Mitra Strategis Managed Service & Solusi Digital Profesional",
+                hero_title_1: "Spesialis Konstruksi Jaringan & Infrastruktur Telekomunikasi Terpercaya",
+                hero_title_2: "Spesialis Managed Service Provider & Digital Solution",
+                hero_desc: "Menghadirkan layanan end-to-end mulai dari Managed Service, Konstruksi Jaringan, Infrastruktur Fiber Optic, hingga Solusi Digital handal untuk kebutuhan bisnis Anda di Indonesia.",
+                hero_btn_services: "Jelajahi Solusi",
+                hero_btn_contact: "Hubungi Kami",
+
+                prop_1_title: "High Standard & Safety",
+                prop_1_desc: "Standar keselamatan kerja tinggi serta kepatuhan penuh terhadap SLA proyek klien.",
+                prop_2_title: "Integrated Connectivity",
+                prop_2_desc: "Solusi end-to-end dari konstruksi sipil fiber optic hingga pengelolaan jaringan server.",
+                prop_3_title: "24/7 Expert Support",
+                prop_3_desc: "Dukungan tim teknisi berpengalaman siap siaga untuk pemeliharaan preventif & korektif.",
+
+                tag_managed: "Managed Service",
+                title_managed: "Pengelolaan Infrastruktur Telekomunikasi 24/7",
+                tag_civil: "Konstruksi Sipil",
+                title_civil: "Pekerjaan Galian Trenching & Fiber Optic",
+                tag_pmcm: "PM & CM Site",
+                title_pmcm: "Pemeliharaan Trafo, Cubicle & Preventive Site",
+                tag_digital: "Digital Solution",
+                title_digital: "Pengembangan Aplikasi Enterprise & Otomasi",
+
+                about_title: "Tentang PT Sentral Konstruksi Jaringan",
+                about_desc: "PT. Sentral Konstruksi Jaringan (SKJ) adalah perusahaan nasional terdepan di bidang konstruksi jaringan internet, telekomunikasi, dan solusi digital yang berkomitmen menghadirkan infrastruktur andal, modern, serta merata di seluruh Indonesia. Melalui layanan Managed Service Provider (MSP) serta keahlian konstruksi sipil jaringan telekomunikasi dan fiber optik, SKJ siap memberikan solusi terbaik yang berorientasi pada kualitas, efisiensi, dan keberlanjutan digitalisasi.",
+                about_card1_title: "Visi & Misi",
+                about_card1_desc: "Kami berkomitmen menjadi perusahaan terdepan dan terpercaya di Indonesia dalam bidang konstruksi jaringan internet, telekomunikasi, dan infrastruktur digital dengan menyediakan layanan yang inovatif, terintegrasi, serta ramah lingkungan. Sebagai mitra strategis bagi seluruh pemangku kepentingan, kami berupaya mendukung pemerataan akses internet yang cepat, stabil, dan terjangkau hingga ke pelosok negeri, sekaligus memperkuat kompetensi sumber daya manusia guna menghadapi tantangan industri teknologi informasi melalui kolaborasi digital.",
+                about_card2_title: "Tim Profesional & Alat Memadai",
+                about_card2_desc: "Didukung oleh tenaga ahli berpengalaman dan integrasi teknologi peralatan terkini, kami memastikan setiap pekerjaan pembangunan infrastruktur berjalan dengan presisi tinggi. Kami menerapkan standar kerja yang ketat serta pemanfaatan perangkat modern guna mengoptimalkan efisiensi di lapangan. Hal ini menjamin bahwa setiap proyek konstruksi jaringan yang kami kerjakan mampu memberikan ketahanan jangka panjang dan performa sistem yang dapat diandalkan secara maksimal.",
+                about_card3_title: "Kepatuhan & Komitmen",
+                about_card3_desc: "Kami berkomitmen untuk menjaga transparansi, integritas, dan profesionalisme tinggi dalam setiap proyek pembangunan infrastruktur digital. Seluruh proses pelaksanaan dikelola secara disiplin untuk memastikan pemenuhan standar SLA (Service Level Agreement) serta regulasi industri yang berlaku. Dengan pendekatan ini, kami tidak hanya menghadirkan hasil yang optimal dan efisien, tetapi juga membangun hubungan kemitraan yang berkelanjutan dan saling percaya dengan seluruh pemangku kepentingan.",
+
+                services_main_title: "Produk & Layanan Kami",
+                services_main_desc: "Solusi profesional mencakup managed service, konstruksi sipil, pemeliharaan site, hingga solusi digital terintegrasi.",
+                srv_popup_hint: "Klik untuk Pop-up & Slide Foto",
+                
+                srv_1_title: "Managed Service Provider",
+                srv_1_desc: "Menyediakan layanan pengelolaan dan pemeliharaan infrastruktur telekomunikasi, jaringan fiber optic (OSP) dan fasilitas Civil, Mechanical & Electrical (CME) termasuk pemeliharaan TRAFO & CUBICLE, serta Infrastruktur Digital (IT), guna memastikan operasional berjalan optimal, stabil, dan berkelanjutan.",
+                
+                srv_2_title: "Konstruksi Sipil",
+                srv_2_desc: "Kami menyediakan layanan konstruksi sipil yang terintegrasi, meliputi pekerjaan galian (trenching) dan open pit untuk mendukung pembangunan jaringan fiber optic dan infrastruktur telekomunikasi lainnya. Didukung oleh tenaga kerja berpengalaman dan peralatan yang memadai, kami berkomitmen menghadirkan hasil pekerjaan yang presisi, aman, serta tepat waktu.",
+                
+                srv_3_title: "PM & CM Site",
+                srv_3_li1_title: "Preventive Maintenance:",
+                srv_3_li1_desc: "inspeksi berkala, pengecekan perangkat, pembersihan, pengujian fungsi, dan dokumentasi kondisi site",
+                srv_3_li2_title: "Corrective Maintenance:",
+                srv_3_li2_desc: "troubleshooting, perbaikan gangguan jaringan/perangkat, penggantian komponen, dan pemulihan layanan",
+                srv_3_li3_title: "Monitoring & Reporting:",
+                srv_3_li3_desc: "pelaporan berkala, SLA compliance, dan analisa performa site",
+                
+                srv_4_title: "Digital Solution (by Solution Exa Digital)",
+                srv_4_desc: "Sebagai penyedia solusi teknologi terintegrasi, kami menghadirkan layanan Pengembangan Aplikasi/Web Enterprise, Mobile, dan Otomasi Bisnis yang andal. Kami fokus pada teknologi terbarukan dan adaptif untuk meningkatkan produktivitas serta pertumbuhan bisnis Anda di era digital.",
+
+                service_cap_1_1: "Pengelolaan & Pemeliharaan Infrastruktur Telekomunikasi 24/7",
+                service_cap_1_2: "Pemeliharaan Trafo & Cubicle serta Fasilitas CME",
+                service_cap_1_3: "Infrastruktur IT & Stabilitas Jaringan Berkelanjutan",
+                service_cap_2_1: "Pekerjaan Galian Trenching & Open Pit Fiber Optic",
+                service_cap_2_2: "Pembangunan Infrastruktur Presisi & Aman di Lapangan",
+                service_cap_3_1: "Preventive Maintenance: Inspeksi & Pengujian Fungsi Perangkat",
+                service_cap_3_2: "Corrective Maintenance: Troubleshooting & Pemulihan Layanan",
+                service_cap_4_1: "Pengembangan Aplikasi Web Enterprise & Otomasi Bisnis",
+                service_cap_4_2: "Solusi Teknologi Adaptif untuk Pertumbuhan Bisnis Anda",
+
+                art_main_title: "Artikel & Wawasan",
+                art_main_desc: "Informasi terbaru seputar dunia konstruksi jaringan, telekomunikasi, dan infrastruktur.",
+                art_popup_hint: "Pop-up & Slide Galeri Foto",
+                art_1_tag: "Infrastruktur • 2026",
+                art_1_title: "Peran Vital Managed Service dalam Stabilitas Jaringan Telekomunikasi",
+                art_1_desc: "Menjaga keandalan jaringan melalui pemeliharaan preventif dan korektif secara berkala oleh teknisi ahli SKJ.",
+                art_2_tag: "Konstruksi • Sipil",
+                art_2_title: "Teknik Trenching dan Open Pit yang Aman untuk Fiber Optic",
+                art_2_desc: "Standar pengerjaan galian tanah yang presisi dan aman guna mendukung suksesnya instalasi kabel jaringan bawah tanah.",
+                art_3_tag: "Teknologi • Solusi",
+                art_3_title: "Integrasi Perangkat Listrik Trafo & Cubicle pada Site Telekomunikasi",
+                art_3_desc: "Menjaga kestabilan pasokan daya listrik site melalui pemeliharaan fasilitas Civil, Mechanical & Electrical (CME).",
+                
+                art_gal_1_1: "Stabilitas Jaringan Telekomunikasi & Managed Service",
+                art_gal_1_2: "Pemeliharaan Infrastruktur Server & Ruang Kontrol",
+                art_gal_1_3: "Monitoring Jaringan 24/7 oleh Teknisi Ahli SKJ",
+                art_gal_2_1: "Teknik Trenching & Galian Aman untuk Kabel Fiber Optic",
+                art_gal_2_2: "Pengerjaan Konstruksi Sipil Lapangan Berstandar Tinggi",
+                art_gal_3_1: "Integrasi Perangkat Listrik Trafo & Cubicle Site",
+                art_gal_3_2: "Pengujian Daya & Pemeliharaan Preventif Berkala",
+
+                art_read_more: "Baca Selengkapnya",
+                art_close_btn: "Tutup Artikel",
+
+                contact_title: "Hubungi Kami",
+                contact_desc: "Konsultasikan kebutuhan proyek konstruksi jaringan dan infrastruktur telekomunikasi Anda bersama PT Sentral Konstruksi Jaringan di seluruh Indonesia.",
+                contact_addr_batam: "Kantor Batam (Pusat / Workshop)",
+                contact_addr_jabo: "Kantor Jabodetabek",
+                contact_addr_jabo_val: "Area Layanan & Perwakilan Operasional Jabodetabek, Indonesia",
+                form_name: "Nama Lengkap",
+                form_name_ph: "Nama Anda",
+                form_email: "Email",
+                form_message: "Pesan / Proyek",
+                form_message_ph: "Tuliskan detail kebutuhan proyek...",
+                form_btn: "Kirim Pesan",
+                
+                footer_tagline: "Your Network, Our Connection. Spesialis Managed Service & Infrastruktur Telekomunikasi.",
+                footer_col_services: "Services",
+                footer_col_about: "About SKJ",
+                footer_col_contact: "Contact & Locations",
+                footer_batam: "Batam (HQ):",
+                footer_jabo: "Jabodetabek:",
+                footer_rights: "Hak Cipta Dilindungi."
+            },
+            en: {
+                nav_home: "Home",
+                nav_about: "About Us",
+                nav_services: "Products & Services",
+                nav_articles: "Articles",
+                nav_contact: "Contact",
+                cta_consult: "Free Consultation",
+                cta_download: "Compro",
+                
+                hero_badge: "Strategic Partner Managed Services & Professional Digital Solutions",
+                hero_title_1: "Trusted Network Construction & Telecommunication Infrastructure Specialist",
+                hero_title_2: "Managed Service Provider & Digital Solution Specialist",
+                hero_desc: "Delivering end-to-end services ranging from Managed Services, Network Construction, Fiber Optic Infrastructure, to reliable Digital Solutions across Indonesia.",
+                hero_btn_services: "Explore Solutions",
+                hero_btn_contact: "Contact Us",
+
+                prop_1_title: "High Standard & Safety",
+                prop_1_desc: "High safety standards and full compliance with client project SLAs.",
+                prop_2_title: "Integrated Connectivity",
+                prop_2_desc: "End-to-end solutions from fiber optic civil construction to server network management.",
+                prop_3_title: "24/7 Expert Support",
+                prop_3_desc: "Experienced technician team on standby for preventive and corrective maintenance.",
+
+                tag_managed: "Managed Service",
+                title_managed: "24/7 Telecommunication Infrastructure Management",
+                tag_civil: "Civil Construction",
+                title_civil: "Trenching & Fiber Optic Excavation Works",
+                tag_pmcm: "PM & CM Site",
+                title_pmcm: "Transformer, Cubicle & Preventive Site Maintenance",
+                tag_digital: "Digital Solution",
+                title_digital: "Enterprise App Development & Automation",
+
+                about_title: "About PT Sentral Konstruksi Jaringan",
+                about_desc: "PT Sentral Konstruksi Jaringan (SKJ) is a leading national company in internet network construction, telecommunications, and digital solutions, committed to delivering reliable, modern, and equitable infrastructure throughout Indonesia. Through Managed Service Provider (MSP) services and expertise in telecommunication and fiber optic civil construction, SKJ is ready to provide the best solutions oriented toward quality, efficiency, and digitalization sustainability.",
+                about_card1_title: "Vision & Mission",
+                about_card1_desc: "We are committed to becoming the leading and trusted company in Indonesia within the fields of internet network construction, telecommunications, and digital infrastructure by providing innovative, integrated, and eco-friendly services. As a strategic partner for all stakeholders, we strive to support the equitable distribution of fast, stable, and affordable internet access to remote areas, while strengthening human resource competencies to face information technology industry challenges through digital collaboration.",
+                about_card2_title: "Professional Team & Adequate Tools",
+                about_card2_desc: "Supported by an experienced workforce and the integration of cutting-edge equipment technology, we ensure every infrastructure development project runs with high precision. We implement strict working standards and utilize modern devices to optimize field efficiency. This guarantees that every network construction project we undertake provides long-term durability and maximally reliable system performance.",
+                about_card3_title: "Compliance & Commitment",
+                about_card3_desc: "We are committed to maintaining high transparency, integrity, and professionalism in every digital infrastructure development project. All implementation processes are disciplined to ensure compliance with SLA (Service Level Agreement) standards and applicable industry regulations. Through this approach, we not only deliver optimal and efficient results but also build sustainable, trust-based partnerships with all stakeholders.",
+
+                services_main_title: "Our Products & Services",
+                services_main_desc: "Professional solutions including managed services, civil construction, site maintenance, and integrated SKJ digital solutions.",
+                srv_popup_hint: "Click for Pop-up & Photo Slides",
+                
+                srv_1_title: "Managed Service Provider",
+                srv_1_desc: "Providing management and maintenance services for telecommunication infrastructure, fiber optic networks (OSP) and Civil, Mechanical & Electrical (CME) facilities including TRAFO & CUBICLE maintenance, and Digital IT Infrastructure to ensure optimal, stable, and sustainable operations.",
+                
+                srv_2_title: "Civil Construction",
+                srv_2_desc: "We provide integrated civil construction services, including trenching and open pit works to support fiber optic network development and other telecommunications infrastructure. Supported by experienced workforce and adequate equipment, we are committed to delivering precise, safe, and on-time results.",
+                
+                srv_3_title: "PM & CM Site",
+                srv_3_li1_title: "Preventive Maintenance:",
+                srv_3_li1_desc: "periodic inspections, device checks, cleaning, functional testing, and site condition documentation",
+                srv_3_li2_title: "Corrective Maintenance:",
+                srv_3_li2_desc: "troubleshooting, network/device failure repairs, component replacement, and service recovery",
+                srv_3_li3_title: "Monitoring & Reporting:",
+                srv_3_li3_desc: "periodic reporting, site performance analysis, and SLA compliance",
+                
+                srv_4_title: "Digital Solution (by Solution Exa Digital)",
+                srv_4_desc: "As an integrated technology solution provider, we deliver reliable Enterprise App/Web Development, Mobile, and Business Automation services. We focus on renewable and adaptive technologies to enhance your business productivity and growth in the digital era.",
+
+                service_cap_1_1: "24/7 Telecommunication Infrastructure Management & Maintenance",
+                service_cap_1_2: "Transformer & Cubicle Maintenance alongside CME Facilities",
+                service_cap_1_3: "IT Infrastructure & Sustainable Network Stability",
+                service_cap_2_1: "Fiber Optic Trenching & Open Pit Excavation Works",
+                service_cap_2_2: "Precise & Safe Field Infrastructure Construction",
+                service_cap_3_1: "Preventive Maintenance: Inspections & Device Functional Testing",
+                service_cap_3_2: "Corrective Maintenance: Troubleshooting & Service Recovery",
+                service_cap_4_1: "Enterprise Web Application Development & Business Automation",
+                service_cap_4_2: "Adaptive Technology Solutions for Your Business Growth",
+
+                art_main_title: "Articles & Insights",
+                art_main_desc: "Latest information regarding network construction, telecommunications, and infrastructure worlds.",
+                art_popup_hint: "Click for Pop-up & Photo Gallery Slide",
+                art_1_tag: "Infrastructure • 2026",
+                art_1_title: "The Vital Role of Managed Services in Telecommunication Network Stability",
+                art_1_desc: "Maintaining network reliability through regular preventive and corrective maintenance by SKJ expert technicians.",
+                art_2_tag: "Construction • Civil",
+                art_2_title: "Safe Trenching and Open Pit Techniques for Fiber Optics",
+                art_2_desc: "Precise and safe soil excavation standards to support successful underground cable network installation.",
+                art_3_tag: "Technology • Solution",
+                art_3_title: "Electrical Transformer & Cubicle Integration at Telecom Sites",
+                art_3_desc: "Maintaining site power supply stability through Civil, Mechanical & Electrical (CME) facility maintenance.",
+
+                art_gal_1_1: "Telecommunication Network Stability & Managed Services",
+                art_gal_1_2: "Server Infrastructure & Control Room Maintenance",
+                art_gal_1_3: "24/7 Network Monitoring by SKJ Expert Technicians",
+                art_gal_2_1: "Safe Trenching & Excavation Techniques for Fiber Optic Cables",
+                art_gal_2_2: "High-Standard Field Civil Construction Works",
+                art_gal_3_1: "Site Transformer & Cubicle Electrical Device Integration",
+                art_gal_3_2: "Power Testing & Regular Preventive Maintenance",
+
+                art_read_more: "Read More",
+                art_close_btn: "Close Article",
+
+                contact_title: "Contact Us",
+                contact_desc: "Consult your network construction and telecommunication infrastructure project needs with PT Sentral Konstruksi Jaringan in Batam & Jabodetabek.",
+                contact_addr_batam: "Batam Office (HQ / Workshop)",
+                contact_addr_jabo: "Jabodetabek Office",
+                contact_addr_jabo_val: "Jabodetabek Operational & Service Coverage Area, Indonesia",
+                form_name: "Full Name",
+                form_name_ph: "Your Name",
+                form_email: "Email",
+                form_message: "Message / Project",
+                form_message_ph: "Write down project requirement details...",
+                form_btn: "Send Message",
+                
+                footer_tagline: "Your Network, Our Connection. Managed Service & Telecom Infrastructure Specialist.",
+                footer_col_services: "Services",
+                footer_col_about: "About SKJ",
+                footer_col_contact: "Contact & Locations",
+                footer_batam: "Batam (HQ):",
+                footer_jabo: "Jabodetabek:",
+                footer_rights: "All Rights Reserved."
+            }
+        };
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            const flagImg = document.getElementById('langIcon');
+            if (lang === 'id') {
+                flagImg.src = "https://flagcdn.com/w20/id.png";
+                flagImg.alt = "ID Flag";
+            } else {
+                flagImg.src = "https://flagcdn.com/w20/gb.png";
+                flagImg.alt = "EN Flag";
+            }
+            
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+            placeholders.forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            // Update modal baca artikel jika sedang terbuka
+            const articleModal = document.getElementById('articleReadModal');
+            if (articleModal && !articleModal.classList.contains('hidden')) {
+                openArticleModal(currentOpenArticleId);
+            }
+
+            // Update modal slider layanan jika sedang terbuka
+            const serviceModal = document.getElementById('serviceSliderModal');
+            if (serviceModal && !serviceModal.classList.contains('hidden')) {
+                updateServiceSliderContent();
+            }
+
+            // Update modal slider artikel jika sedang terbuka
+            const articleSliderModal = document.getElementById('articleSliderModal');
+            if (articleSliderModal && !articleSliderModal.classList.contains('hidden')) {
+                updateSliderContent();
+            }
+
+            initTypewriter();
+            updateHeroPortfolio();
+        }
+    </script>
+</body>
+</html>
