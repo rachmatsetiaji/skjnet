@@ -8,6 +8,6 @@
 <img width="1654" height="2338" alt="pmcm-mku" src="https://github.com/user-attachments/assets/0cad44ed-6433-4969-9ab2-f97a9149580b" />
 <img width="1654" height="2338" alt="pmcm-mku2" src="https://github.com/user-attachments/assets/d4a5ce46-586f-4689-a771-e6acd1d424de" />
 <img width="910" height="415" alt="schedule-pm-MS-TRAFO-2026" src="https://github.com/user-attachments/assets/99044bcc-56f4-419d-af4b-29bfc5e6cc8b" />
-<img width="1672" height="941" alt="SKJ Network Operations Center" src="https://github.com/user-attachments/assets/d0e1e5af-da43-47de-b30e-9eb1a66fe14b" />
+
 
 
